@@ -1,11 +1,88 @@
-body {
-    font-family: Georgia, serif;
-    max-width: 600px;
-    margin: 2rem auto;
-    line-height: 1.6;
-    padding: 0 1rem;
-}
-h1 {
-    text-align: center;
-    font-size: 2rem;
-}
+:root {
+    --font-family: 'Arial', sans-serif; /* Replace with your own font */
+    --font-size: 16px; /* Replace with your desired size */
+    --navbar-bg: #ddd; /* Slightly darker gray */
+    --main-bg: #f5f5f5; /* Light gray */
+  }
+  
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--main-bg);
+  }
+  
+  .navbar {
+    background-color: var(--navbar-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .nav-left {
+    font-size: var(--font-size);
+    font-weight: bold;
+  }
+  
+  .nav-right a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #000;
+    font-size: var(--font-size);
+  }
+  
+  .main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+    height: 80vh;
+  }
+  
+  .image-stack {
+    position: relative;
+    width: 400px; /* Adjust width as needed */
+    height: 300px; /* Adjust height as needed */
+  }
+  
+  .card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+  
+  /* Stacking order */
+  .card:nth-child(1) { z-index: 1; transform: translate(0px, 0px); }
+  .card:nth-child(2) { z-index: 2; transform: translate(20px, 20px); }
+  .card:nth-child(3) { z-index: 3; transform: translate(40px, 40px); }
+  .card:nth-child(4) { z-index: 4; transform: translate(60px, 60px); }
+  
+  /* Hover Effect */
+  .card:hover {
+    z-index: 10;
+    transform: translate(0px, 0px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+  
+  /* Bottom Bar */
+  .bottom-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    font-size: var(--font-size);
+    color: #000;
+  }
